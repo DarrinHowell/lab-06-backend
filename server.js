@@ -19,8 +19,14 @@ app.get('/location', (request,response) => {
 
   function searchToLatLong(query) {
     // Go to google (tomorrow)
-    const geoData = require(GOOGLE_MAPS);
-    const location = new Location(geoData.results[0]);
+    const googleData = require(GOOGLE_MAPS);
+    const location = new Location(googleData.results[0]);
       location.search_query = query;
     return location;
+  }
+
+  function Location(data) { 
+    this.formatted_query = data.formatted_address;
+    this.latitude = data.geometry.location.lat;
+    this.longitude = data.geometry.location.lng;
   }
