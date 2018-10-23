@@ -14,7 +14,8 @@ app.use(_cors());
 app.get('/location', (request,response) => {
   const locationData = searchToLatLong(request.query.data);
   response.send(locationData);
-  response.send('hello');
+
+
 });
 
 
@@ -32,8 +33,25 @@ function Location(data) {
   this.longitude = data.geometry.location.lng;
 }
 
+// attribute to John Cokos - demo code from github 10/22/2018. 
+
+
+// app.get('/weather', (request, response) => {
+//     const weatherData = searchToWeather(request.location.data.geometry.location.lat);
+//     response.send(weatherData);
+// }
+
+// function searchToWeather(query) {
+//     // Go to google (tomorrow)
+//     const weatherData = require('./data/darksky.json');
+//     const location = new Location(googleData.results[0]);
+//     location.search_query = query;
+//     return location;
+//   }
+
+
 app.listen(PORT, () => console.log(`App is up on ${PORT}`) );
 
-// attribute to John Cokos - demo code from github 10/22/2018. 
+
 
 
