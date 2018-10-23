@@ -27,9 +27,13 @@ function searchToLatLong(query) {
 }
 
 function Location(data) {
-//   this.formatted_query = data.formatted_address;
+  this.formatted_query = data.formatted_address;
   this.latitude = data.geometry.location.lat;
   this.longitude = data.geometry.location.lng;
 }
 
 app.listen(PORT, () => console.log(`App is up on ${PORT}`) );
+
+// attribute to John Cokos - demo code from github 10/22/2018. 
+
+
